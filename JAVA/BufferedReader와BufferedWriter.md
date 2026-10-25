@@ -25,7 +25,7 @@ int n=Integer.parseInt(st.nextToken());
 ```
 -이방법 경우 공백을 경계로 두고 입력을 받을떄 사용한다
 
-###BufferedWriter
+### BufferedWriter
 - BufferedWriter은 버퍼에 쌓아두었다가 출력하는 형태이다
 - System.out.print()와 달리 호출마다 작업이 일어나지 않고 버퍼에 쌓아두었다가 한꺼번에 내보내서 출력횟수가 현저히 적다
 ```java
