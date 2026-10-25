@@ -8,16 +8,20 @@
 
 ### BufferedReader사용법
 ```java
-BufferedReader br=new BufferedReader(new InputStreamReader(system.in));//선언
+import java.io.*;
+import java.util.*;
+BufferedReader br=new BufferedReader(new InputStreamReader(System.in));//선언
 String s= br.readLine();//String형태로 입력
 int i=Integer.parseInt(br.readLine());
 ```
 -BufferedReader의 경우 입력을 String형으로 입력받기 떄문에 반드시 원하는 자료구조로 변경해야한다
 ```java
-BufferedReader br = new BufferedReader(new InputStreamReader(System.in));//
-StringTokenizer st = new StringTokenizer(br.readLine());br.readLine로 한줄을 입력받은 다음 공백을 기준으로 토큰을 나눠서 st에 담음
+import java.io.*;
+import java.util.*;
+BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+StringTokenizer st = new StringTokenizer(br.readLine()); //br.readLine로 한줄을 입력받은 다음 공백을 기준으로 토큰을 나눠서 st에 담음
 int a=Integer.parseInt(st.nextToken());//토큰을 int형으로 저장
-int n=Integer.parseInt(st.nextToekn());
+int n=Integer.parseInt(st.nextToken());
 ```
 -이방법 경우 공백을 경계로 두고 입력을 받을떄 사용한다
 
@@ -25,13 +29,15 @@ int n=Integer.parseInt(st.nextToekn());
 - BufferedWriter은 버퍼에 쌓아두었다가 출력하는 형태이다
 - System.out.print()와 달리 호출마다 작업이 일어나지 않고 버퍼에 쌓아두었다가 한꺼번에 내보내서 출력횟수가 현저히 적다
 ```java
+import java.io.*;
+import java.util.*;
 BufferedWriter bw=new BufferedWriter(new OutputStreamWriter(System.out));
 
 bw.write("hello");//버퍼에 "hello"저장
 
 bw.close(); //버퍼안에있는 "hello"출력 및 종료
 ```
-### SCanner와 BufferedWriter 속도차이 실험
+### SCanner와 BufferedReader 속도차이 실험
 ```java
 import java.io.*;
 import java.util.*;
@@ -59,7 +65,7 @@ public class Main {
 ```
 - 결과값:Scanner:3997ms BufferedReader: 342ms
 ### 정리 및 요약
--  한꺼번에 입력을 받아 버퍼로 읽어두고 BufferedWriter로 한꺼번에 출력 하므로 Scanner와 달리 많은 입력에서 훨씬 빠르다.
+- BufferedReader는 입력을 받아 버퍼로 읽어두어서 Scanner와 달리 많은 입력에서 훨씬 빠르다. BufferedWriter로 한꺼번에 버퍼의 내용 출력 하므로 System.out.println은  호출될떄마다 출력을 하므로 BufferWriter가 빠르다
 - 입력값이 적을떄는 차이가 별로 없지만 입력값이 많아질수록 차이가 많이 나기 때문에 입력의 크기를 보고 bufferedReader를 사용해야한다
 
 
